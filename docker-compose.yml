@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    container_name: quizzy-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: quizzy
+      POSTGRES_PASSWORD: quizzy
+      POSTGRES_DB: quizzy
+    ports:
+      - "5432:5432"
+    volumes:
+      - quizzy_pgdata:/var/lib/postgresql/data
+
+volumes:
+  quizzy_pgdata:
+
+#Так, мы задали настройки для
+#базы данных, дали ей ссылку и порт и закинули ссылку в .env,
+#чтоб код мог использовать ее
