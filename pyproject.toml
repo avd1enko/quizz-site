@@ -1,0 +1,24 @@
+[project]
+name = "quizzy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.1",
+    "fastapi>=0.128.0",
+    "psycopg[binary]>=3.3.2",
+    "pydantic-settings>=2.12.0",
+    "sqlalchemy>=2.0.45",
+    "uvicorn[standard]>=0.40.0",
+]
+# такое разделение на группы дает возможность проду не тянуть инструменты разработки,
+# не нужные в реальной работе сервиса
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "ruff>=0.14.13",
+    "pytest>=9.0.2"
+]
